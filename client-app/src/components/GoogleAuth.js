@@ -8,7 +8,7 @@ class GoogleAuth extends Component {
       window.gapi.client
         .init({
           clientId:
-            "630554827486-9h447jgir4nu5beod7l1lh81jbc0bjjxp1.apps.googleusercontent.com",
+            "179077164262-laa704f2l6s9cksrjp7ds03ua8vfuadm.apps.googleusercontent.com",
           scope: "email"
         })
         .then(() => {
@@ -28,6 +28,7 @@ class GoogleAuth extends Component {
     } else if (isSignedIn === false) {
       this.props.signOut();
     }
+
   };
 
   handleSignInButtonClick = () => {
@@ -74,7 +75,7 @@ class GoogleAuth extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+ 
   return {
     isSignedIn: state.auth.isSignedIn,
     userId: state.auth.userId

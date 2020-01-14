@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   isSignedIn: null,
-  clientId: ""
+  userId: ""
 };
 
 export default (state = INITIAL_STATE, action) => {
