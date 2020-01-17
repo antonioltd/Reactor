@@ -15,16 +15,16 @@ class GoogleAuth extends Component {
           this.auth = window.gapi.auth2.getAuthInstance();
           this.handleAuthChange(
             this.auth.isSignedIn.get(),
-            this.auth.currentUser.get().getId()
+            
           );
           this.auth.isSignedIn.listen(this.handleAuthChange);
         });
     });
   }
 
-  handleAuthChange = (isSignedIn, userId) => {
+handleAuthChange = (isSignedIn) => {
     if (isSignedIn) {
-      this.props.signIn(userId);
+      this.props.signIn(this.auth.currentUser.get().getId());
     } else if (isSignedIn === false) {
       this.props.signOut();
     }
@@ -75,10 +75,11 @@ class GoogleAuth extends Component {
 }
 
 const mapStateToProps = state => {
- 
+  console.log(state);
   return {
     isSignedIn: state.auth.isSignedIn,
-    userId: state.auth.userId
+    userId: state.auth.userId,
+    basicProfile: state.auth.basicProfile
   };
 };
 
